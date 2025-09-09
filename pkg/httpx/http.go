@@ -12,7 +12,7 @@ import (
 )
 
 func Client[T any](c *fiber.Ctx, method string, url string, req any, resp *StandardResponse[T]) error {
-	client := &http.Client{}
+	client := HttpClient
 	reqJson, err := json.Marshal(req)
 	if err != nil {
 		return fmt.Errorf("[apicaller] : %w", err)

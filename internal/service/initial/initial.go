@@ -10,7 +10,6 @@ import (
 	"github.com/caarlos0/env/v11"
 	"github.com/gofiber/fiber/v2"
 	"github.com/wisaitas/template-golang/internal/service"
-	"github.com/wisaitas/template-golang/pkg/httpx"
 )
 
 func init() {
@@ -26,8 +25,6 @@ type App struct {
 func New() *App {
 
 	app := fiber.New()
-
-	app.Use(httpx.NewLogger(service.Config.Server.Name))
 
 	_ = newMiddleware(app)
 
